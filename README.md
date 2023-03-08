@@ -21,5 +21,5 @@ O container é:
 
 
 <p aling="center">
-  <img alt="Fluxograma Docker" title="Fluxograma Docker" src="./.github/fluxograma-docker.png" width="400px">
+  <img alt="Fluxograma Docker" title="Fluxograma Docker" src="./.github/fluxograma-docker.png" width="700px">
 </p>
