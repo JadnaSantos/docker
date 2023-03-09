@@ -1,9 +1,6 @@
 # Docker
 Repositório dedicado para os meus estudos sobre docker 🐳
 
-🚧 - EM Construção
-
-
 ### O que é o docker?
 
 O Docker é uma plataforma para o desenvolvedor e/ou administrador de sistemas: criar, executar e compartilhar aplicativos em containers.
@@ -25,3 +22,62 @@ O container é:
 <p aling="center">
   <img alt="Fluxograma Docker" title="Fluxograma Docker" src="./.github/fluxograma-docker.png" width="700px">
 </p>
+
+### Principais Comandos 
+
+```
+docker run ---------------------- instância e inicializa um container 
+docker create ---------------------- cria mas não starta, eles tem um ciclo de vida
+docker ps  ------------------ lista container que estão rodando e os que estão parados
+docker stop ------------- serve para parar um container 
+docker kill ---------------- kill é brupto 
+docker rm ----------------- remover o container de uma vez
+```
+### Dockerfile
+O DockerFile é uma maneira de criar imagens para execução de containers Docker, com instruções personalizadas e que podem ser modificadas posteriormente, conforme a necessidade.
+
+O arquivo DockerFile é uma estrutura contendo instruções executadas em top-down, que ao final da execução, deixam o container pronto para uso.
+
+### Como inicializar um dockerfile
+
+```
+FROM  Para criar uma imagem precisamos definir uma imagem já existente 
+
+WORKDIR Diretório de trabalho dentro do container
+
+COPY copia o arquivo package.json
+
+RUN npm install
+
+COPY copia o restante dos arquivos
+
+EXPOSE coloca para executar numa porta
+
+CMD ['npm', 'start'] comando de inicialização
+```
+
+### Docker Compose 
+O Compose é uma ferramenta para definir e executar aplicativos Docker de vários contêineres. 
+Com o Compose, você usa um arquivo YAML para configurar os serviços do seu aplicativo. 
+Então, com um único comando, você cria e inicia todos os serviços de sua configuração.
+
+### Como inicializar um docker.compose.yalm - exemplo
+
+```
+version: "declara a versão do docker compose"
+
+services: "declara os serviços que serão rodados, nesse caso, chamamos de backend"
+  backend:
+    build: "declara o nome da imagem"
+    ports:
+      - 3333:3333
+    container_name: api
+    
+    volumes: "declarar o volumes, com ele é possovel compartilharmos um volume da nossa máquina com o container.
+
+```
+
+
+## Fontes 🔎
+
+https://docs.docker.com/
