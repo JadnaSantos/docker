@@ -1,5 +1,6 @@
-import { app } from './infra/http/config/app';
 
+import { connection } from './infra/database/connection';
+import { app } from './infra/http/config/app';
 const port = Number(process.env.PORT) || 3000;
 
 app.get('/', async (_req, res) => {

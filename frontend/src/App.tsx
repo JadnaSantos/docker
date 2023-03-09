@@ -1,32 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import './App.css'
+import { useEffect, useState } from 'react'
+import api from './service/api';
+import styles from './app.module.css';
+
+type InstructorsProps = {
+  name: string;
+  creator: string;
+}
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [instructors, setInstructors] = useState<InstructorsProps[]>([]);
+
+  const loadInstructor = async () => {
+    try {
+      const response = await api.get('/')
+
+      console.log(response)
+
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  useEffect(() => {
+    loadInstructor()
+  }, [loadInstructor])
 
   return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src="/vite.svg" className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className={styles.app}>
+      <div className={styles['app-header']}>
+        <p>Proggraming Languages</p>
+        {instructors.length > 0 ?
+          instructors.map(p => (
+            <span>{p.name} - {p.creator}</span>
+          )) : `Empty database`}
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   )
 }
