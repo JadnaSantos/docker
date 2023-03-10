@@ -80,5 +80,5 @@ services: "declara os serviços que serão rodados, nesse caso, chamamos de back
 
 ## Fontes 🔎
 
-https://docs.docker.com/
-https://www.freecodecamp.org/news/the-docker-handbook
+- [Docker](https://docs.docker.com/)
+- [FreeCodeCamp](https://www.freecodecamp.org/news/the-docker-handbook)
